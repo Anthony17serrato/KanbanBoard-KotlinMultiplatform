@@ -117,3 +117,8 @@ compose.desktop {
 compose.experimental {
     web.application {}
 }
+
+compose {
+    kotlinCompilerPlugin.set(libs.versions.compose.compiler)
+    kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=${libs.versions.kotlin}")
+}
