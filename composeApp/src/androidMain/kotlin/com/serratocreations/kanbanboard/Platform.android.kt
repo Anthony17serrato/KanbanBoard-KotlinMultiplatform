@@ -1,3 +1,5 @@
+package com.serratocreations.kanbanboard
+
 import android.os.Build
 
 class AndroidPlatform : Platform {

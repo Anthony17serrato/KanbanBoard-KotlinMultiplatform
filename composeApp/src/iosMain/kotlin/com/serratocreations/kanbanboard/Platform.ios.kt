@@ -1,3 +1,5 @@
+package com.serratocreations.kanbanboard
+
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {
