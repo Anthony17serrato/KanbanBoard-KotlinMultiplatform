@@ -10,18 +10,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.ExperimentalResourceApi
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import kanbanboard.composeapp.generated.resources.Res
 import kanbanboard.composeapp.generated.resources.compose_multiplatform
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 @Preview
-fun App() {
-    // TODO use Koin
-    val kanbanViewModel: KanbanViewModel = KanbanViewModel()
+fun App(
+    kanbanViewModel: KanbanViewModel = viewModel { KanbanViewModel() }
+) {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
