@@ -1,4 +1,4 @@
-package com.serratocreations.kanbanboard
+package com.serratocreations.kanbanboard.presentation
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -11,6 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.serratocreations.kanbanboard.Greeting
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import kanbanboard.composeapp.generated.resources.Res
@@ -22,9 +23,10 @@ fun App(
     kanbanViewModel: KanbanViewModel = viewModel { KanbanViewModel() }
 ) {
     MaterialTheme {
+        val kanbanUiState = kanbanViewModel.kanbanUiState.collectAsState()
         var showContent by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(kanbanViewModel.getGreeting())
+            Text(kanbanUiState.value.joinToString())
             Button(onClick = { showContent = !showContent }) {
                 Text("Click me!")
             }
